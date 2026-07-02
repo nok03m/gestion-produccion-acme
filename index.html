@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario ACME</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/registerUser.js" defer></script>
+  </head>
+
+  <body>
+    <main id="contenedor">
+      <form id="add-user" action="" method="post">
+        <h2>Registro de usuario</h2>
+        <img class="icon" src="assets/usuario.png" alt="Icon user" />
+        <div class="field">
+          <label for="id">Identificacion: </label>
+          <input
+            class="input-txt"
+            type="number"
+            id="id"
+            name="id"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="name">Nombre:</label>
+          <input
+            class="input-txt"
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="username">Usuario:</label>
+          <input
+            class="input-txt"
+            type="text"
+            id="username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="password">Contraseña:</label>
+          <input
+            class="input-pass"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+
+        <div class="box-btn">
+          <button class="btn-submit" type="submit">Registrar</button>
+          <button class="btn-reset" type="reset">Limpiar</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

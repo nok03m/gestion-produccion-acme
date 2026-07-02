@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario</title>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/inventory.js" defer></script>
+  </head>
+  <body>
+    <main id="contenedor">
+      <h1>Productos</h1>
+      <div>
+        <h2>Lista productos</h2>
+        <table id="list-products">
+          <thead>
+            <th>COD</th>
+            <th>Nombre</th>
+            <th>Proveedor</th>
+            <th>Cantidad</th>
+            <th>Accion</th>
+          </thead>
+          <tbody id="products">
+          </tbody>
+        </table>
+      </div>
+      <a href="add-product.html">Agregar producto</a>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --primary-color: #04a777;
+  --secondary-color: #f0f8ea;
+  --aux-color: #779be7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  background-image: url("/assets/white-background.jpg");
+  background-size: cover;
+  background-position: 50%;
+}
+
+#contenedor {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-user,
+#add-product,
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+  padding: 45px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.box-btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+button[class^="btn-"] {
+  background-color: black;
+  color: white;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: bold;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+}
+
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[class^="input-"] {
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  padding: 15px 0;
+}
+
+.icon {
+  max-width: 100px;
+  padding: 20px;
+}

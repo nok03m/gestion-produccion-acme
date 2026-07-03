@@ -1,6 +1,6 @@
 
 import { getCookie } from "../js/utils/cookies.js";
-import { httpClientGet, httpClientWithBody } from "../js/utils/http-client.js";
+import { httpClientGet, httpClientWithBody, httpClientWithoutBody } from "../js/utils/http-client.js";
 
 const URL_BASE = "https://gestion-produccion-56714-default-rtdb.firebaseio.com";
 
@@ -25,4 +25,10 @@ export const listProducts = async () => {
     const URL = `${URL_BASE}/product.json`;
 
     return await httpClientGet(URL);
+}
+
+export const deleteProduct = async (id) => {
+    const URL = `${URL_BASE}/product/${id}.json`;
+
+    return await httpClientWithoutBody(URL, "DELETE");
 }

@@ -1,7 +1,7 @@
+import { addHistory } from "../services/productionService.js";
 import {
     addProduct, deleteProduct, listProducts,
-    findLastProdByCode, findProduct,
-    modifyProduct
+    findProduct, modifyProduct
 } from "../services/productService.js";
 
 const listProductsEl = document.getElementById("list-products");
@@ -115,6 +115,7 @@ formAddProdEl.addEventListener("submit", async (e) => {
 
                 product.feedstock = dataFeedstock;
                 await addProduct(product);
+                await addHistory(product);
             } else {
                 alert("FAILED");
             }

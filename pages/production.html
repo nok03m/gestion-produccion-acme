@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME Prod</title>
+    <link rel="stylesheet" href="../style.css">
+    <script type="module" src="../utils/auth.js"></script>
+    <script type="module" src="../modules/production.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="production.html">Production</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="container">
+        <h1>History</h1>
+        <div>
+            <h2>History production</h2>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Stock used</th>
+                    <th>Feedstock</th>
+                </thead>
+                <tbody id="list-history"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>

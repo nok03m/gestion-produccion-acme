@@ -25,6 +25,6 @@ formLoginEl.addEventListener("submit", async (e) => {
 
     alert("Welcome to ACME!!!");
     user.password = "***";
-    saveCookie("session_cookie", user, 1);
+    saveCookie("session_cookie", JSON.stringify(user), 1);
     window.location.href = "./pages/home.html";
 });

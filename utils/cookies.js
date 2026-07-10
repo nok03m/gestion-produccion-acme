@@ -13,19 +13,19 @@ export const saveCookie = (name, value, days) => {
 export const getCookie = (name) => {
   const listCookies = document.cookie.split(';');
 
-    const cookieFound = listCookies.find(cookie => {
-        const cleanCookie = cookie.trim(); 
-        return cleanCookie.startsWith(`${name}=`);
-    });
+  const cookieFound = listCookies.find(cookie => {
+    const cleanCookie = cookie.trim();
+    return cleanCookie.startsWith(`${name}=`);
+  });
 
-    if (cookieFound) {
-        return cookieFound.trim().split('=')[1];
-    }
-    
-    return null;
+  if (cookieFound) {
+    return cookieFound.trim().split('=')[1];
+  }
+
+  return null;
 };
 
 export const deleteCookie = (name) => {
-    // Force expiration
-    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  // Force expiration
+  document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }

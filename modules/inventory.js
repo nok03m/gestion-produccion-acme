@@ -3,6 +3,7 @@ import {
     addProduct, deleteProduct, listProducts,
     findProduct, modifyProduct
 } from "../services/productService.js";
+import { getCookie } from "../utils/cookies.js";
 
 const listProductsEl = document.getElementById("list-products");
 const formAddProdEl = document.getElementById("add-product");
@@ -79,16 +80,16 @@ formAddProdEl.addEventListener("submit", async (e) => {
             for (const feedstock of listFeedstock) {
                 const prodAvailable = await findProduct(feedstock.value);
 
-                if (prodAvailable === null) {
-                    isFeedstockAvailable.push(false);
-                    continue;
-                }
-
                 const quantityEl = feedstock.parentElement.lastElementChild;
                 const quantityFeedstock = Number(quantityEl.value);
-                const totalRequired = Number(product.stock * quantityFeedstock);
 
-                isFeedstockAvailable.push(prodAvailable.stock >= totalRequired);
+                if (prodAvailable === null || quantityFeedstock < 0) {
+                    isFeedstockAvailable.push(false);
+
+                } else {
+                    const totalRequired = Number(product.stock * quantityFeedstock);
+                    isFeedstockAvailable.push(prodAvailable.stock >= totalRequired);
+                }
             }
 
             productReady = isFeedstockAvailable.every((available) => available === true);
@@ -115,7 +116,11 @@ formAddProdEl.addEventListener("submit", async (e) => {
 
                 product.feedstock = dataFeedstock;
                 await addProduct(product);
-                await addHistory(product);
+                await addHistory({
+                    date: new Date().toLocaleDateString(),
+                    user: JSON.parse(getCookie("session_cookie")).name || "NA",
+                    ...product
+                });
             } else {
                 alert("FAILED");
             }
@@ -197,7 +202,7 @@ for (const el of typeProductEl) {
                                 <input class="feedstock" type='checkbox' value='${prod.code}'>
                                 <span>${prod.name} (${prod.stock}) </span>
                                 <input type='number' class='quantity' name='quantity' \
-                                max='${prod.stock}'
+                                max='${prod.stock} min='1'
                                 required disabled>
                             </label>
                         </div>

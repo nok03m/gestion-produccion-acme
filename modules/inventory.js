@@ -115,8 +115,9 @@ formAddProdEl.addEventListener("submit", async (e) => {
                 }
 
                 product.feedstock = dataFeedstock;
-                await addProduct(product);
+                const codeProduct = await addProduct(product);
                 await addHistory({
+                    code: codeProduct,
                     date: new Date().toLocaleDateString(),
                     user: JSON.parse(getCookie("session_cookie")).name || "NA",
                     ...product

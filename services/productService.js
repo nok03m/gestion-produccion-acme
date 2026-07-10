@@ -9,9 +9,10 @@ export const addProduct = async (product) => {
     const URL = `${URL_BASE}/${newCode}.json`;
 
     await httpClientWithBody(URL, { code: newCode, ...product }, "PUT");
+    return newCode
 }
 
-export const modifyProduct = async(product) => {
+export const modifyProduct = async (product) => {
     const URL = `${URL_BASE}/${product.code}.json`;
     await httpClientWithBody(URL, product, "PATCH");
 }
@@ -40,7 +41,7 @@ export const listProducts = async () => {
 
 export const findLastProdByCode = async () => {
     const response = await listProducts();
-    
+
     if (response === null) {
         return;
     }

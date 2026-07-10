@@ -34,6 +34,7 @@ async function renderHistory() {
             outputHtml += `
             <tr>
                 <td>${history.date}</td>
+                <td>${history.code}</td>
                 <td>${history.name}</td>
                 <td>${feedstockUsed}</td>
                 <td>${fsStr}</td>
